@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Editor, EditorState} from 'draft-js';
+import 'draft-js/dist/Draft.css';
+
+function MyEditor() {
+  const [editorState, setEditorState] = React.useState(
+    () => EditorState.createEmpty(),
+  );
+
+  return <Editor editorState={editorState} onChange={setEditorState} />;
+}
+
+ReactDOM.render(<MyEditor />, document.getElementById('container'));
 
 ReactDOM.render(
   <React.StrictMode>
